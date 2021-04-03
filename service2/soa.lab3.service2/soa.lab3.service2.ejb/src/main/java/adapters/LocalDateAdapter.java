@@ -1,4 +1,4 @@
-package ru.ifmo.soa.lab3.service1.adapters;
+package adapters;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDateTime;
