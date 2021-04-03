@@ -10,6 +10,7 @@
     <modules>
         <module>soa.lab3.service2.ejb</module>
         <module>soa.lab3.service2.jaxrs</module>
+        <module>common</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
