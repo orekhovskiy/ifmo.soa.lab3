@@ -1,3 +1,5 @@
+package soa;
+
 import ejb.EbayStatelessBeanRemote;
 
 import javax.naming.InitialContext;
@@ -22,7 +24,7 @@ public class FilterResource {
     }
 
     @GET
-    @Path("/hello")
+    @Path("hello")
     public Response getHello() throws NamingException {
         return Response.status(Response.Status.OK).entity(getStatelessBean().sayHello()).build();
     }
@@ -40,6 +42,6 @@ public class FilterResource {
     @Produces("application/xml")
     public Response getFilteredByUnitOfMeasure(@PathParam("unit-of-measure") String unitOfMeasure)
             throws NamingException {
-        return getStatelessBean().filterProducts("manufacture-cost", unitOfMeasure);
+        return getStatelessBean().filterProducts("unit-of-measure", unitOfMeasure);
     }
 }
