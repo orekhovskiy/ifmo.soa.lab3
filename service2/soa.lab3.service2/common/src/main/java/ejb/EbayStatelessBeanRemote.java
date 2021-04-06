@@ -6,5 +6,5 @@ import javax.ws.rs.core.Response;
 @Remote
 public interface EbayStatelessBeanRemote {
     String sayHello();
-    Response filterProducts(String key, String value);
+    String filterProducts(String key, String value);
 }

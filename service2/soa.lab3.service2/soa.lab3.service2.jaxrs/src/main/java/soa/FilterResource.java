@@ -9,6 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import java.util.Locale;
 import java.util.Properties;
 
 @Path("/filter")
@@ -34,7 +35,8 @@ public class FilterResource {
     @Produces("application/xml")
     public Response getFilteredByManufactureCost(@PathParam("manufacture-cost") String cost)
             throws NamingException {
-        return getStatelessBean().filterProducts("manufacture-cost", cost);
+       return generateResponse(getStatelessBean().filterProducts("manufacture-cost", cost));
+
     }
 
     @GET
@@ -42,6 +44,12 @@ public class FilterResource {
     @Produces("application/xml")
     public Response getFilteredByUnitOfMeasure(@PathParam("unit-of-measure") String unitOfMeasure)
             throws NamingException {
-        return getStatelessBean().filterProducts("unit-of-measure", unitOfMeasure);
+        return generateResponse(getStatelessBean().filterProducts("unit-of-measure", unitOfMeasure));
+    }
+
+    private Response generateResponse(String rmiResponse) {
+        int status = Integer.parseInt(rmiResponse.substring(0, 3));
+        String body = rmiResponse.substring(4);
+        return Response.status(status).entity(body).build();
     }
 }
