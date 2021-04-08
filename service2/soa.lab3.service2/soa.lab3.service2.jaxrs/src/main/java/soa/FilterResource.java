@@ -9,6 +9,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -34,7 +36,7 @@ public class FilterResource {
     @Path("/manufacture-cost/{manufacture-cost}")
     @Produces("application/xml")
     public Response getFilteredByManufactureCost(@PathParam("manufacture-cost") String cost)
-            throws NamingException {
+            throws NamingException, KeyManagementException, NoSuchAlgorithmException {
        return generateResponse(getStatelessBean().filterProducts("manufacture-cost", cost));
 
     }
@@ -43,7 +45,7 @@ public class FilterResource {
     @Path("/unit-of-measure/{unit-of-measure}")
     @Produces("application/xml")
     public Response getFilteredByUnitOfMeasure(@PathParam("unit-of-measure") String unitOfMeasure)
-            throws NamingException {
+            throws NamingException, KeyManagementException, NoSuchAlgorithmException {
         return generateResponse(getStatelessBean().filterProducts("unit-of-measure", unitOfMeasure));
     }
 
