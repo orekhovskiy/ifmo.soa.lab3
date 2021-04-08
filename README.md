@@ -39,7 +39,7 @@
     cd /home/s225123/soa_lab3_services/service1  
     java -jar soa-lab3-service1-zuul-0.0.1-SNAPSHOT.jar ru.ifmo.soa.lab3.service1.zuul.Application  
 ## Service2 (Payara damains)
-    ssh -L 6763:localhost:6763 -L 6761:localhost:6761 s225123@helios.cs.ifmo.ru -p 2222  
+    ssh -L 6763:localhost:6763 -L 6761:localhost:6761 -L 6781:localhost:6781 s225123@helios.cs.ifmo.ru -p 2222  
     bash  
     cd payara5/bin  
     ./asadmin start-domain instance1  
